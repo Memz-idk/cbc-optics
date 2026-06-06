@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": { "item": "create:sturdy_sheet" },
+    "G": { "item": "minecraft:spyglass" }
+  },
+  "pattern": [
+    "S S",
+    "S S",
+    "SGS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "cbcoptics:incomplete_cannon_sight"
+  }
+}

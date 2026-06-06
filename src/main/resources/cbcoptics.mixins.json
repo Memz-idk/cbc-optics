@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "com.lememz.cbcoptics.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CameraMixin",
+    "EntitySubLevelRotationHelperMixin",
+    "GameRendererMixin",
+    "MountedBigCannonContraptionMixin",
+    "PitchOrientedContraptionEntityMixin"
+  ],
+  "plugin": "com.lememz.cbcoptics.mixin.MixinPlugin",
+  "client": [
+    "CullTaskMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
