@@ -1,8 +1,10 @@
 {
   "itemGroup.cbcoptics": "CBC Optics",
   "block.cbcoptics.cannon_sight": "Cannon Sight",
+  "block.cbcoptics.autocannon_sight": "Autocannon Sight",
   "item.cbcoptics.sight_viewer": "Sight Viewer",
   "item.cbcoptics.incomplete_cannon_sight": "Incomplete Cannon Sight",
+  "item.cbcoptics.incomplete_autocannon_sight": "Incomplete Autocannon Sight",
   "key.cbcoptics.exit_sight": "Exit Sight",
   "key.cbcoptics.enter_sight": "Enter Sight",
   "key.categories.cbcoptics": "CBC Optics"

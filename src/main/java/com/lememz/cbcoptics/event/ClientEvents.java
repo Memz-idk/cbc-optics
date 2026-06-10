@@ -2,8 +2,8 @@ package com.lememz.cbcoptics.event;
 
 import com.lememz.cbcoptics.CBCOptics;
 import com.lememz.cbcoptics.attachment.CameraState;
+import com.lememz.cbcoptics.block.SightBlock;
 import com.lememz.cbcoptics.init.CBCOpticsAttachments;
-import com.lememz.cbcoptics.init.CBCOpticsBlocks;
 import com.lememz.cbcoptics.init.CBCOpticsKeyMappings;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -58,7 +58,7 @@ public class ClientEvents {
         }
         PitchOrientedContraptionEntity cannon = (PitchOrientedContraptionEntity)possibleCannon.get();
         StructureTemplate.StructureBlockInfo sight = cannon.getContraption().getBlocks().values().stream().filter(
-                block -> block.state().is(CBCOpticsBlocks.CANNON_SIGHT.get())
+                block -> block.state().getBlock() instanceof SightBlock
         ).findFirst().orElse(null);
         if(sight == null) {
             return;

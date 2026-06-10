@@ -1,0 +1,33 @@
+{
+  "variants": {
+    "facing=down,looking=north": { "model": "cbcoptics:block/autocannon_sight" },
+    "facing=down,looking=south": { "model": "cbcoptics:block/autocannon_sight", "y": 180 },
+    "facing=down,looking=east":  { "model": "cbcoptics:block/autocannon_sight", "y": 90 },
+    "facing=down,looking=west":  { "model": "cbcoptics:block/autocannon_sight", "y": 270 },
+
+    "facing=up,looking=north": { "model": "cbcoptics:block/autocannon_sight", "x": 180, "y": 180 },
+    "facing=up,looking=south": { "model": "cbcoptics:block/autocannon_sight", "x": 180 },
+    "facing=up,looking=east":  { "model": "cbcoptics:block/autocannon_sight", "x": 180, "y": 270 },
+    "facing=up,looking=west":  { "model": "cbcoptics:block/autocannon_sight", "x": 180, "y": 90 },
+
+    "facing=north,looking=up":   { "model": "cbcoptics:block/autocannon_sight", "x": 270 },
+    "facing=north,looking=down": { "model": "cbcoptics:block/autocannon_sight", "x": 90, "y": 180 },
+    "facing=north,looking=east": { "model": "cbcoptics:block/autocannon_sight_z", "x": 180, "y": 270 },
+    "facing=north,looking=west": { "model": "cbcoptics:block/autocannon_sight_z", "x": 0, "y": 270 },
+
+    "facing=south,looking=up":   { "model": "cbcoptics:block/autocannon_sight", "x": 270, "y": 180 },
+    "facing=south,looking=down": { "model": "cbcoptics:block/autocannon_sight", "x": 90 },
+    "facing=south,looking=east": { "model": "cbcoptics:block/autocannon_sight_z", "x": 0, "y": 90 },
+    "facing=south,looking=west": { "model": "cbcoptics:block/autocannon_sight_z", "x": 180, "y": 90 },
+
+    "facing=east,looking=up":    { "model": "cbcoptics:block/autocannon_sight", "x": 270, "y": 90 },
+    "facing=east,looking=down":  { "model": "cbcoptics:block/autocannon_sight", "x": 90, "y": 270 },
+    "facing=east,looking=north": { "model": "cbcoptics:block/autocannon_sight_z", "x": 0, "y": 0 },
+    "facing=east,looking=south": { "model": "cbcoptics:block/autocannon_sight_z", "x": 180, "y": 0 },
+
+    "facing=west,looking=up":    { "model": "cbcoptics:block/autocannon_sight", "x": 270, "y": 270 },
+    "facing=west,looking=down":  { "model": "cbcoptics:block/autocannon_sight", "x": 90, "y": 90 },
+    "facing=west,looking=north": { "model": "cbcoptics:block/autocannon_sight_z", "x": 180, "y": 180 },
+    "facing=west,looking=south": { "model": "cbcoptics:block/autocannon_sight_z", "x": 0, "y": 180 }
+  }
+}

@@ -12,17 +12,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class CannonSightBlock extends SightBlock {
+public class AutocannonSightBlock extends SightBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch(state.getValue(FACING)) {
-            case DOWN -> Shapes.box(4/16., 0, 4/16., 12/16., 9/16., 12/16.);
-            case UP -> Shapes.box(4/16., 7/16., 4/16., 12/16., 1, 12/16.);
-            case NORTH -> Shapes.box(4/16., 4/16., 0, 12/16., 12/16., 9/16. );
-            case SOUTH -> Shapes.box(4/16., 4/16., 7/16., 12/16., 12/16., 1);
-            case WEST -> Shapes.box(0, 4/16., 4/16., 9/16., 12/16., 12/16.);
-            case EAST -> Shapes.box(7/16., 4/16., 4/16., 1, 12/16., 12/16.);
+            case DOWN -> Shapes.box(5/16., 0, 5/16., 11/16., 6/16., 11/16.);
+            case UP -> Shapes.box(5/16., 10/16., 5/16., 11/16., 1, 11/16.);
+            case NORTH -> Shapes.box(5/16., 5/16., 0, 11/16., 11/16., 6/16. );
+            case SOUTH -> Shapes.box(5/16., 5/16., 10/16., 11/16., 11/16., 1);
+            case WEST -> Shapes.box(0, 5/16., 5/16., 6/16., 11/16., 11/16.);
+            case EAST -> Shapes.box(10/16., 5/16., 5/16., 1, 11/16., 11/16.);
         };
     }
 }

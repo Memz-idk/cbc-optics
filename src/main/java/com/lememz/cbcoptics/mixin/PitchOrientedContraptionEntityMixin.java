@@ -1,10 +1,9 @@
 package com.lememz.cbcoptics.mixin;
 
 import com.lememz.cbcoptics.attachment.CameraState;
+import com.lememz.cbcoptics.block.SightBlock;
 import com.lememz.cbcoptics.init.CBCOpticsAttachments;
-import com.lememz.cbcoptics.init.CBCOpticsBlocks;
 import com.lememz.cbcoptics.init.CBCOpticsItems;
-import com.simibubi.create.content.redstone.link.controller.LinkedControllerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -14,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import rbasamoyai.createbigcannons.cannon_control.contraption.MountedBigCannonContraption;
+import rbasamoyai.createbigcannons.cannon_control.contraption.AbstractMountedCannonContraption;
 import rbasamoyai.createbigcannons.cannon_control.contraption.PitchOrientedContraptionEntity;
 
 import java.util.Optional;
@@ -29,11 +28,11 @@ public class PitchOrientedContraptionEntityMixin {
         }
         PitchOrientedContraptionEntity self = (PitchOrientedContraptionEntity)(Object)this;
         boolean isUsingViewer = player.getItemInHand(InteractionHand.MAIN_HAND).is(CBCOpticsItems.SIGHT_VIEWER.get());
-        if (interactionHand != InteractionHand.MAIN_HAND || !isUsingViewer || !(self.getContraption() instanceof MountedBigCannonContraption cannon)) {
+        if (interactionHand != InteractionHand.MAIN_HAND || !isUsingViewer || !(self.getContraption() instanceof AbstractMountedCannonContraption cannon)) {
             return;
         }
         StructureTemplate.StructureBlockInfo sight = cannon.getBlocks().values().stream().filter(
-                block -> block.state().is(CBCOpticsBlocks.CANNON_SIGHT.get())
+                block -> block.state().getBlock() instanceof SightBlock
         ).findFirst().orElse(null);
         if(sight == null) {
             return;

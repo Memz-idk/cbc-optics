@@ -1,6 +1,7 @@
 package com.lememz.cbcoptics.init;
 
 import com.lememz.cbcoptics.CBCOptics;
+import com.lememz.cbcoptics.block.AutocannonSightBlock;
 import com.lememz.cbcoptics.block.CannonSightBlock;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -14,6 +15,7 @@ public final class CBCOpticsBlocks {
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CBCOptics.MOD_ID);
     public static final DeferredBlock<Block> CANNON_SIGHT = registerWithItem("cannon_sight", CannonSightBlock::new);
+    public static final DeferredBlock<Block> AUTOCANNON_SIGHT = registerWithItem("autocannon_sight", AutocannonSightBlock::new);
 
     private static DeferredBlock<Block> registerWithItem(String name, Supplier<Block> supplier) {
         DeferredBlock<Block> block = BLOCKS.register(name, supplier);

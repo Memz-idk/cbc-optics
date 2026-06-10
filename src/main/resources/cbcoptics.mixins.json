@@ -7,7 +7,8 @@
     "EntitySubLevelRotationHelperMixin",
     "GameRendererMixin",
     "MountedBigCannonContraptionMixin",
-    "PitchOrientedContraptionEntityMixin"
+    "PitchOrientedContraptionEntityMixin",
+    "MountedAutocannonContraptionMixin"
   ],
   "plugin": "com.lememz.cbcoptics.mixin.MixinPlugin",
   "client": [
