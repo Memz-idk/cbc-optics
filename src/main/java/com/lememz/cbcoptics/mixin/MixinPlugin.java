@@ -31,12 +31,8 @@ public class MixinPlugin implements IMixinConfigPlugin {
     }
 
     private boolean isClassPresent(String className) {
-        try {
-            Class.forName(className, false, getClass().getClassLoader());
-            return true;
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
+        String resource = className.replace('.', '/') + ".class";
+        return getClass().getClassLoader().getResource(resource) != null;
     }
 
     @Override
