@@ -4,11 +4,14 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CameraMixin",
+    "CBCATCannonContraptionMixin",
+    "CBCNWCannonContraptionMixin",
+    "ControllerPosAccessor",
     "EntitySubLevelRotationHelperMixin",
     "GameRendererMixin",
+    "MountedAutocannonContraptionMixin",
     "MountedBigCannonContraptionMixin",
-    "PitchOrientedContraptionEntityMixin",
-    "MountedAutocannonContraptionMixin"
+    "PitchOrientedContraptionEntityMixin"
   ],
   "plugin": "com.lememz.cbcoptics.mixin.MixinPlugin",
   "client": [

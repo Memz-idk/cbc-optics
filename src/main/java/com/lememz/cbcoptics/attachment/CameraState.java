@@ -22,7 +22,6 @@ import org.joml.Math;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import rbasamoyai.createbigcannons.cannon_control.contraption.AbstractMountedCannonContraption;
-import rbasamoyai.createbigcannons.cannon_control.contraption.MountedAutocannonContraption;
 import rbasamoyai.createbigcannons.cannon_control.contraption.PitchOrientedContraptionEntity;
 
 import javax.annotation.Nullable;
@@ -93,7 +92,7 @@ public class CameraState {
         Vector3f forward = new Vector3f(forwardInt.getX(), forwardInt.getY(), forwardInt.getZ());
         AbstractMountedCannonContraption cannon = (AbstractMountedCannonContraption)this.contraptionEntity.getContraption();
         BlockPos cannonStartPos = cannon.getStartPos();
-        if(cannon instanceof MountedAutocannonContraption) {
+        if(cannonStartPos.relative(cannon.initialOrientation()).equals(BlockPos.ZERO)) {
             cannonStartPos = cannonStartPos.relative(cannon.initialOrientation());
         }
         Vector3f cannonUnrotatedForward = cannon.initialOrientation().step();

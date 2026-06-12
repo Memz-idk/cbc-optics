@@ -20,6 +20,7 @@ public class CBCOpticsLootTableSubProvider extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(CBCOpticsBlocks.CANNON_SIGHT.get());
         this.dropSelf(CBCOpticsBlocks.AUTOCANNON_SIGHT.get());
+        this.dropSelf(CBCOpticsBlocks.OPTICS_CONTROL_UNIT.get());
     }
 
     @Override

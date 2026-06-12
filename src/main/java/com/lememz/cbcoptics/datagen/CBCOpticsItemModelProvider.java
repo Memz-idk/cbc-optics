@@ -18,6 +18,7 @@ public class CBCOpticsItemModelProvider extends ItemModelProvider {
         this.basicItem(CBCOpticsItems.INCOMPLETE_CANNON_SIGHT.get());
         this.basicItem(CBCOpticsItems.INCOMPLETE_AUTOCANNON_SIGHT.get());
         this.handheldItem(CBCOpticsItems.SIGHT_VIEWER.get());
+        this.handheldItem(CBCOpticsItems.SIGHT_LINKER.get());
         this.basicItem(CBCOpticsBlocks.CANNON_SIGHT.asItem());
         this.basicItem(CBCOpticsBlocks.AUTOCANNON_SIGHT.asItem());
     }

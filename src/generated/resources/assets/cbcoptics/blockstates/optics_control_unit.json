@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cbcoptics:block/optics_control_unit"
+    }
+  }
+}

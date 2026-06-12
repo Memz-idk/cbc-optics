@@ -2,10 +2,20 @@
   "itemGroup.cbcoptics": "CBC Optics",
   "block.cbcoptics.cannon_sight": "Cannon Sight",
   "block.cbcoptics.autocannon_sight": "Autocannon Sight",
+  "block.cbcoptics.optics_control_unit": "Optics Control Unit",
   "item.cbcoptics.sight_viewer": "Sight Viewer",
+  "item.cbcoptics.sight_linker": "Sight Linker",
   "item.cbcoptics.incomplete_cannon_sight": "Incomplete Cannon Sight",
   "item.cbcoptics.incomplete_autocannon_sight": "Incomplete Autocannon Sight",
   "key.cbcoptics.exit_sight": "Exit Sight",
   "key.cbcoptics.enter_sight": "Enter Sight",
-  "key.categories.cbcoptics": "CBC Optics"
+  "key.cbcoptics.toggle_sight": "Toggle Sight",
+  "key.cbcoptics.next_sight": "Next Sight",
+  "key.cbcoptics.previous_sight": "Previous Sight",
+  "key.categories.cbcoptics": "CBC Optics",
+  "message.cbcoptics.sight_linker_got": "Got sight!",
+  "message.cbcoptics.sight_linker_clear": "Cleared sights!",
+  "message.cbcoptics.sight_linker_add": "Added sight!",
+  "message.cbcoptics.optics_control_unit_attach": "Attached Optics Control Unit!",
+  "message.cbcoptics.optics_control_unit_unattach": "Unattached Optics Control Unit!"
 }
