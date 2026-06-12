@@ -1,9 +1,6 @@
 package com.lememz.cbcoptics;
 
-import com.lememz.cbcoptics.init.CBCOpticsAttachments;
-import com.lememz.cbcoptics.init.CBCOpticsBlocks;
-import com.lememz.cbcoptics.init.CBCOpticsItems;
-import com.lememz.cbcoptics.init.CBCOpticsTabs;
+import com.lememz.cbcoptics.init.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -18,5 +15,7 @@ public class CBCOptics {
         CBCOpticsItems.ITEMS.register(bus);
         CBCOpticsTabs.CREATIVE_MODE_TABS.register(bus);
         CBCOpticsAttachments.ATTACHMENT_TYPES.register(bus);
+        CBCOpticsBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
+        CBCOpticsDataComponentTypes.DATA_COMPONENT_TYPES.register(bus);
     }
 }

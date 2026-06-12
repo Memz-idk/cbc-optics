@@ -130,8 +130,10 @@ dependencies {
     // And its provides the option to then use net.minecraft as the group, and one of; client, server or joined as the module name, plus the game version as version.
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "maven.modrinth:entityculling:2tOn8XA2"
+    implementation "maven.modrinth:entityculling:${entityculling_version}"
     implementation "curse.maven:create-big-cannons-646668:${cbc_version}"
+    implementation "curse.maven:create-big-cannons-advanced-technologies-1180196:${cbcat_version}"
+    implementation "curse.maven:cbc-neo-warfare-1552960:${cbcnw_version}"
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")

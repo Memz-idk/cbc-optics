@@ -21,13 +21,17 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if(mixinClassName.equals("com.lememz.cbcoptics.mixin.EntitySubLevelRotationHelperMixin")) {
-            return isClassPresent("dev.ryanhcode.sable.Sable");
-        }
-        if(mixinClassName.equals("com.lememz.cbcoptics.mixin.CullTaskMixin")) {
-            return isClassPresent("dev.tr7zw.entityculling.EntityCullingMod");
-        }
-        return true;
+        return switch (mixinClassName) {
+            case "com.lememz.cbcoptics.mixin.EntitySubLevelRotationHelperMixin" ->
+                    isClassPresent("dev.ryanhcode.sable.Sable");
+            case "com.lememz.cbcoptics.mixin.CullTaskMixin" ->
+                    isClassPresent("dev.tr7zw.entityculling.EntityCullingMod");
+            case "com.lememz.cbcoptics.mixin.CBCATCannonContraptionMixin" ->
+                    isClassPresent("com.dsvv.cbcat.CreateBigCannons_AdvancedTechnology");
+            case "com.lememz.cbcoptics.mixin.CBCNWCannonContraptionMixin" ->
+                    isClassPresent("riftyboi.cbcmodernwarfare.CBCModernWarfare");
+            default -> true;
+        };
     }
 
     private boolean isClassPresent(String className) {

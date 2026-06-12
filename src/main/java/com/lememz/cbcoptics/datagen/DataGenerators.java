@@ -30,5 +30,6 @@ public final class DataGenerators {
                 output, Collections.emptySet(), List.of(lootTableSubProvider), registries
         ));
         event.getGenerator().addProvider(event.includeClient(), new CBCOpticsItemModelProvider(output, helper));
+        event.getGenerator().addProvider(event.includeClient(), new CBCOpticsBlockStateProvider(output, helper));
     }
 }

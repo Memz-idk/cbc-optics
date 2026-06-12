@@ -1,6 +1,7 @@
 package com.lememz.cbcoptics.init;
 
 import com.lememz.cbcoptics.CBCOptics;
+import com.lememz.cbcoptics.attachment.AttachedOpticsControlUnit;
 import com.lememz.cbcoptics.attachment.CameraState;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -18,6 +19,12 @@ public final class CBCOpticsAttachments {
             ATTACHMENT_TYPES.register("camera_state", () ->
                     AttachmentType.<Optional<CameraState>>builder(Optional::empty)
                             .sync(new CameraState.SyncHandler())
+                            .build()
+            );
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<Optional<AttachedOpticsControlUnit>>> ATTACHED_OPTICS_CONTROL_UNIT =
+            ATTACHMENT_TYPES.register("attached_optics_control_unit", () ->
+                    AttachmentType.<Optional<AttachedOpticsControlUnit>>builder(Optional::empty)
+                            .sync(new AttachedOpticsControlUnit.SyncHandler())
                             .build()
             );
 }

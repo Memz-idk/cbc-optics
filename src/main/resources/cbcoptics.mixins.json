@@ -4,8 +4,12 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CameraMixin",
+    "CBCATCannonContraptionMixin",
+    "CBCNWCannonContraptionMixin",
+    "ControllerPosAccessor",
     "EntitySubLevelRotationHelperMixin",
     "GameRendererMixin",
+    "MountedAutocannonContraptionMixin",
     "MountedBigCannonContraptionMixin",
     "PitchOrientedContraptionEntityMixin"
   ],

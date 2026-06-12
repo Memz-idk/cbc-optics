@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
-@Mixin(value = Camera.class)
+@Mixin(Camera.class)
 public class CameraMixin {
 
     @Shadow

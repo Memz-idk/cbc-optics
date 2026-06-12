@@ -2,6 +2,7 @@ package com.lememz.cbcoptics.attachment;
 
 import com.lememz.cbcoptics.block.CannonSightBlock;
 import com.lememz.cbcoptics.compat.SableCompat;
+import com.lememz.cbcoptics.init.CBCOpticsBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -10,6 +11,8 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.ModList;
@@ -60,7 +63,20 @@ public class CameraState {
     }
 
     private Vec3 calculateSightPosition() {
-        return this.contraptionEntity.toGlobalVector(this.sightPos.getCenter(), 0);
+        Optional<StructureBlockInfo> blockOptional = this.contraptionEntity.getContraption().getBlocks().entrySet().stream()
+                .filter(p -> p.getKey().equals(this.sightPos))
+                .map(Map.Entry::getValue)
+                .findFirst();
+        if (blockOptional.isEmpty()) {
+            throw new IllegalStateException("Could not find cannon sight on cannon");
+        }
+        BlockState block = blockOptional.get().state();
+        Vec3 pos = this.sightPos.getCenter();
+        if(block.is(CBCOpticsBlocks.AUTOCANNON_SIGHT)) {
+            Vector3f offset = block.getValue(BlockStateProperties.FACING).step().mul(-0.3f);
+            pos = pos.subtract(offset.x, offset.y, offset.z);
+        }
+        return this.contraptionEntity.toGlobalVector(pos, 0);
     }
 
     public Vector3f calculateRotation() {
@@ -75,9 +91,13 @@ public class CameraState {
         Vec3i forwardInt = facing.getNormal();
         Vector3f forward = new Vector3f(forwardInt.getX(), forwardInt.getY(), forwardInt.getZ());
         AbstractMountedCannonContraption cannon = (AbstractMountedCannonContraption)this.contraptionEntity.getContraption();
+        BlockPos cannonStartPos = cannon.getStartPos();
+        if(cannonStartPos.relative(cannon.initialOrientation()).equals(BlockPos.ZERO)) {
+            cannonStartPos = cannonStartPos.relative(cannon.initialOrientation());
+        }
         Vector3f cannonUnrotatedForward = cannon.initialOrientation().step();
         Vector3f cannonForward = this.contraptionEntity
-                .toGlobalVector(Vec3.atCenterOf(cannon.getStartPos().relative(cannon.initialOrientation())), 0)
+                .toGlobalVector(Vec3.atCenterOf(cannonStartPos.relative(cannon.initialOrientation())), 0)
                 .subtract(this.contraptionEntity.toGlobalVector(Vec3.atCenterOf(BlockPos.ZERO), 0))
                 .normalize().toVector3f();
         Quaternionf cannonOrientation = new Quaternionf().rotateTo(cannonUnrotatedForward, cannonForward);
@@ -97,6 +117,9 @@ public class CameraState {
         }
         float yaw = (float)Math.toDegrees(Math.atan2(-forward.get(0), forward.z));
         float pitch = (float)Math.toDegrees(Math.safeAsin(-forward.y));
+        if(Float.isNaN(yaw) || Float.isNaN(pitch) || Float.isNaN(roll)) {
+            throw new IllegalStateException("Found NaN in the CameraState's rotation");
+        }
         return new Vector3f(pitch, yaw, roll);
     }
 
@@ -131,8 +154,8 @@ public class CameraState {
                 buf.writeBlockPos(cameraState.sightPos);
                 buf.writeNullable(cameraState.prevSightPosition, FriendlyByteBuf::writeVec3);
                 buf.writeNullable(cameraState.prevRotation, (b, v) -> b.writeVector3f(v));
-                buf.writeNullable(cameraState.calculatedSightPosition, FriendlyByteBuf::writeVec3);
-                buf.writeNullable(cameraState.calculatedRotation, (b, v) -> b.writeVector3f(v));
+                buf.writeVec3(cameraState.calculatedSightPosition);
+                buf.writeVector3f(cameraState.calculatedRotation);
             });
         }
 
@@ -152,8 +175,8 @@ public class CameraState {
             BlockPos sightPos = buf.readBlockPos();
             Vec3 prevSightPos = buf.readNullable(FriendlyByteBuf::readVec3);
             Vector3f prevRotation = buf.readNullable(b -> b.readVector3f());
-            Vec3 calculatedSightPosition = buf.readNullable(FriendlyByteBuf::readVec3);
-            Vector3f calculatedRotation = buf.readNullable(b -> b.readVector3f());
+            Vec3 calculatedSightPosition = buf.readVec3();
+            Vector3f calculatedRotation = buf.readVector3f();
             return Optional.of(new CameraState(
                     contraptionEntity, sightPos, prevSightPos, prevRotation, calculatedSightPosition, calculatedRotation
             ));

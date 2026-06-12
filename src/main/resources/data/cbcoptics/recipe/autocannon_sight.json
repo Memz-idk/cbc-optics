@@ -1,0 +1,24 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": { "item": "cbcoptics:incomplete_autocannon_sight" },
+  "results": [{ "id": "cbcoptics:autocannon_sight" }],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "cbcoptics:incomplete_autocannon_sight" },
+        { "item": "minecraft:ender_eye" }
+      ],
+      "results": [{ "id": "cbcoptics:incomplete_autocannon_sight"}]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "cbcoptics:incomplete_autocannon_sight" },
+        { "item": "minecraft:glass_pane" }
+      ],
+      "results": [{ "id": "cbcoptics:incomplete_autocannon_sight"}]
+    }
+  ],
+  "transitional_item": { "id": "cbcoptics:incomplete_autocannon_sight" }
+}
