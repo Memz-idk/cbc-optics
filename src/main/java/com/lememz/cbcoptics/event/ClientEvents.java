@@ -19,6 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
@@ -34,7 +35,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-@EventBusSubscriber
+@EventBusSubscriber(Dist.CLIENT)
 public final class ClientEvents {
 
     private ClientEvents() {}

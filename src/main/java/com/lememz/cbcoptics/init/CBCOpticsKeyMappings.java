@@ -2,6 +2,7 @@ package com.lememz.cbcoptics.init;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-@EventBusSubscriber
+@EventBusSubscriber(Dist.CLIENT)
 @ParametersAreNonnullByDefault
 public final class CBCOpticsKeyMappings {
 
