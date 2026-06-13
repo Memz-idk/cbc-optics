@@ -14,13 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import rbasamoyai.createbigcannons.cannon_control.contraption.AbstractMountedCannonContraption;
 import riftyboi.cbcmodernwarfare.cannon_control.contraption.MountedMediumcannonContraption;
 import riftyboi.cbcmodernwarfare.cannon_control.contraption.MountedMunitionsLauncherContraption;
+import riftyboi.cbcmodernwarfare.cannon_control.contraption.MountedRotarycannonContraption;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Mixin({
         MountedMediumcannonContraption.class, MountedMunitionsLauncherContraption.class,
-        MountedMediumRocketRailContraption.class
+        MountedMediumRocketRailContraption.class, MountedRotarycannonContraption.class
 })
 public class CBCNWCannonContraptionMixin {
 
